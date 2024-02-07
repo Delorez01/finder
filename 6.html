@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7 задание</title>
+	<style>
+		.box1 {
+			background-image: url(johns.jpg);
+			background-size: 100% 100%;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 300px;
+			left: 600px;
+			transition: 1s;
+		}
+		.box2 {
+			background-image: url(clint.jpg);
+			background-size: 100% 100%;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 300px;
+			left: 900px;
+			transition: 1s;
+		}
+		.box3 {
+			background-image: url(eudora.jpg);
+			background-size: 100% 100%;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 300px;
+			left: 1200px;
+			transition: 1s;
+		}
+		.box4 {
+			background-image: url(fanny.jpg);
+			background-size: 100% 100%;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 700px;
+			left: 600px;
+			transition: 1s;
+		}
+		.box5 {
+			background-image: url(aamon.jpg);
+			background-size: 100% 100%;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 700px;
+			left: 900px;
+			transition: 1s;
+		}
+		.box6 {
+			background-image: url(franco.jpg);
+			background-size: 100% 100%;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 700px;
+			left: 1200px;
+			transition: 1s;
+		}
+		.btn {
+			height: 40px;
+			width: 150px;
+			background: lime;
+			border: none;
+			color: white;
+			margin-left: 760px;
+		}
+		.btn2 {
+			height: 40px;
+			width: 150px;
+			background: lime;
+			border: none;
+			color: white;
+			display: none;
+			position: absolute;
+			top: 121px;
+			left: 1000px;
+		}
+		.bg {
+			background-image: url(bg.jpg);
+		}
+		.a {
+			margin-left: 720px;
+			color: white;
+		}
+		.b {
+			margin-left: 750px;
+			color: white;
+		}
+
+	</style>
+</head>
+<body class="bg">
+	<!-- див с красным фоном -->
+	<h1 class="a">Найди Джонсона</h1>
+	<h3 class="b">Осталось попыток: <span class="text"></span></h3>
+	<button class="btn">Перемешать</button>
+	<button class="btn2">Попробывать снова</button>
+	<div class="main">
+		<div class="box1">
+		</div>
+		<div class="box2">
+		</div>
+		<div class="box3">
+		</div>
+		<div class="box4">
+		</div>
+		<div class="box5">
+		</div>
+		<div class="box6">
+		</div>
+		<div class="box7">
+			
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		// Создай переменную для попыток attempts, которая содержит значение 2. Выведи ее значение во внутрь тега span. 
+		// Сделай нажатие на кнопку 
+		// Когда нажимаешь на кнопку элементы меняются местами, див перекрасить в черный
+		// Когда нажимаешь на див на спанч боба выводится сообщение молодец 
+		// Когда нажимаешь на див на сквидворда попытки -1, если попытки равны нулю то ты проиграл
+		// При победе или при проигрыши все дивы скрываются
+		let attempts = 2
+		let a = 1200
+		let b = 900
+		let c = 600
+		let d = 700
+		let e = 300
+		let txt = "px"
+
+		document.querySelector(".text").innerHTML = attempts
+		document.querySelector(".btn").onclick = function() {
+			document.querySelector(".box1").style.left = b + txt
+			document.querySelector(".box1").style.top = d + txt
+			document.querySelector(".box2").style.left = c + txt
+			document.querySelector(".box3").style.top = d + txt
+			document.querySelector(".box6").style.left = c + txt
+			document.querySelector(".box4").style.top = e + txt
+			document.querySelector(".box4").style.left = a + txt
+			document.querySelector(".box5").style.top = e + txt
+			document.querySelector(".box1").style.background = "black"
+			document.querySelector(".box2").style.background = "black"
+			document.querySelector(".box3").style.background = "black"
+			document.querySelector(".box4").style.background = "black"
+			document.querySelector(".box5").style.background = "black"
+			document.querySelector(".box6").style.background = "black"
+		}
+		document.querySelector(".box1").onclick = function() {
+			alert("Молодец! Ты выйграл.")
+			document.querySelector(".box1").style.backgroundImage = "url(johns.jpg)"
+		}
+		document.querySelector(".box2").onclick = function() {
+			document.querySelector(".box2").style.backgroundImage = "url(clint.jpg)"
+			attempts = attempts - 1
+			document.querySelector(".text").innerHTML = attempts
+			if(attempts <= 0) {
+				alert("Ты проиграл")
+				document.querySelector(".box1").style.display = "none"
+				document.querySelector(".box2").style.display = "none"
+				document.querySelector(".box3").style.display = "none"
+				document.querySelector(".box4").style.display = "none"
+				document.querySelector(".box5").style.display = "none"
+				document.querySelector(".box6").style.display = "none"
+				document.querySelector(".btn2").style.display = "block"
+			}
+		}
+		document.querySelector(".box3").onclick = function() {
+			document.querySelector(".box3").style.backgroundImage = "url(eudora.jpg)"
+			attempts = attempts - 1
+			document.querySelector(".text").innerHTML = attempts
+			if(attempts <= 0) {
+				alert("Ты проиграл")
+				document.querySelector(".box1").style.display = "none"
+				document.querySelector(".box2").style.display = "none"
+				document.querySelector(".box3").style.display = "none"
+				document.querySelector(".box4").style.display = "none"
+				document.querySelector(".box5").style.display = "none"
+				document.querySelector(".box6").style.display = "none"
+				document.querySelector(".btn2").style.display = "block"
+			}
+		}
+		document.querySelector(".box4").onclick = function() {
+			document.querySelector(".box4").style.backgroundImage = "url(fanny.jpg)"
+			attempts = attempts - 1
+			document.querySelector(".text").innerHTML = attempts
+			if(attempts <= 0) {
+				alert("Ты проиграл")
+				document.querySelector(".box1").style.display = "none"
+				document.querySelector(".box2").style.display = "none"
+				document.querySelector(".box3").style.display = "none"
+				document.querySelector(".box4").style.display = "none"
+				document.querySelector(".box5").style.display = "none"
+				document.querySelector(".box6").style.display = "none"
+				document.querySelector(".btn2").style.display = "block"
+			}
+		}
+		document.querySelector(".box5").onclick = function() {
+			document.querySelector(".box5").style.backgroundImage = "url(aamon.jpg)"
+			attempts = attempts - 1
+			document.querySelector(".text").innerHTML = attempts
+			if(attempts <= 0) {
+				alert("Ты проиграл")
+				document.querySelector(".box1").style.display = "none"
+				document.querySelector(".box2").style.display = "none"
+				document.querySelector(".box3").style.display = "none"
+				document.querySelector(".box4").style.display = "none"
+				document.querySelector(".box5").style.display = "none"
+				document.querySelector(".box6").style.display = "none"
+				document.querySelector(".btn2").style.display = "block"
+			}
+		}
+		document.querySelector(".box6").onclick = function() {
+			document.querySelector(".box6").style.backgroundImage = "url(franco.jpg)"
+			attempts = attempts - 1
+			document.querySelector(".text").innerHTML = attempts
+			if(attempts <= 0) {
+				alert("Ты проиграл")
+				document.querySelector(".box1").style.display = "none"
+				document.querySelector(".box2").style.display = "none"
+				document.querySelector(".box3").style.display = "none"
+				document.querySelector(".box4").style.display = "none"
+				document.querySelector(".box5").style.display = "none"
+				document.querySelector(".box6").style.display = "none"
+				document.querySelector(".btn2").style.display = "block"
+			}
+		}
+		document.querySelector(".btn2").onclick = function() {
+			location.reload(true)
+		}
+
+
+		
+	</script>
+</body>
+</html>
